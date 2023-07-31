@@ -1,5 +1,5 @@
-# CloakWP WordPress Backend Starter
-This is the official WordPress backend starter for CloakWP (headless WordPress) projects. It's an opinionated, modern approach to WordPress development. However, it isn't a required piece of the CloakWP stack -- you can opt-out and use your own preferred WordPress development stack while still leveraging the CloakWP Plugin + NPM package + front-end starter.
+# CloakWP Bedrock - Headless WordPress Boilerplate
+This is the official WordPress boilerplate for CloakWP (headless WordPress) projects. It's an opinionated, modern approach to WordPress development. However, it isn't a required piece of the CloakWP stack -- you can opt-out and use your own preferred WordPress development stack while still leveraging the other CloakWP tools.
 
 This opinionated starter leverages many modern WordPress development tools:
 - [Bedrock](https://roots.io/bedrock/) - a popular WordPress boilerplate with Composer, easier configuration, and an improved folder structure, enabling:
