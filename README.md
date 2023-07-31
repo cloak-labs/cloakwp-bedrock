@@ -19,19 +19,20 @@ This opinionated starter leverages many modern WordPress development tools:
   - [MailHog](https://github.com/mailhog/MailHog) - an email testing tool for developers -- configure your outgoing SMTP server and view your outgoing email in a web UI.
 - An opinionated collection of WordPress plugins pre-installed that enable/improve the headless WordPress experience, obviously including the CloakWP Plugin and Theme, plus a production-ready child theme with all kinds of goodies related to registering/configuring CPTs, taxonomies, ACF Blocks, and ACF Field Groups via code -- the best-practice way you'll learn to love.
 
-## Instructions
-
-<details>
- <summary>Requirements</summary>
-
+## Requirements
 - Composer
 - PHP >= 8.0
 - [Docker](https://www.docker.com/get-started) + Docker Compose + Docker Desktop
 - PNPM
 - Node.js
 
-</details>
+## Installation
+cd into your desired installation directory and run:
+```bash
+composer create-project cloak-labs/cloakwp-bedrock
+```
 
+## Configuration
 <details>
  <summary>Env Variables</summary>
 
