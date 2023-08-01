@@ -10,7 +10,7 @@ This opinionated starter leverages many modern WordPress development tools:
   - mu-plugins autoloader
   - Enhanced WordPress security (folder structure limits access to non-public files and offers more secure passwords through [wp-password-bcrypt](https://github.com/roots/wp-password-bcrypt))
   - Gets WordPress 80% of the way towards becoming a proper [Twelve-Factor App](http://12factor.net/)
-- [Spinup Local WP](https://github.com/cloak-labs/cloakwp/tree/feat/localwp/packages/spinup-local-wp) - another NPM package by the CloakWP team that acts as a simple abstraction layer over [Docker + Docker Compose](https://docs.docker.com/compose/), enabling you to quickly spin up your WordPress site locally while in development with zero effort. It includes the following:
+- [Spinup Local WP](https://github.com/cloak-labs/spinup-local-wp) - another NPM package by the CloakWP team that acts as a simple abstraction layer over [Docker + Docker Compose](https://docs.docker.com/compose/), enabling you to quickly spin up your WordPress site locally while in development with zero effort. It includes the following:
   - PHP 8.1,
   - Nginx server,
   - MariaDB (popular MySQL fork),
@@ -31,12 +31,33 @@ cd into your desired installation directory and run:
 ```bash
 composer create-project cloak-labs/cloakwp-bedrock
 ```
+Note: you will be prompted to enter your ACF Pro account credentials on the command-line, since ACF Pro is a default dependency of this starter. If you don't have an account, simply enter fake credentials and ignore the red error message that will follow -- your project will still get created. To prevent constantly having to enter your ACF Pro creds on the command-line when running `composer update`, configure an `auth.json` file as described below.
 
+Then run:
+```bash
+cd cloakwp-bedrock
+```
+and:
+```bash
+npm install
+```
+... which installs [Spinup Local WP](https://github.com/cloak-labs/spinup-local-wp).
+
+Finally, run:
+```bash
+composer update
+```
 ## Configuration
 <details>
  <summary>Env Variables</summary>
+The Composer install command above will automatically copy the `.env.example` file to a `.env` file that you can now edit.
 
-Edit `.env.example` to your needs (there are many comments explaining things). During the `composer create-project` command described below (which also gets run automatically when you run `pnpm install` from the project root), a `.env` will automatically be created from `.env.example` -- so it's important to treat `.env.example` as the source of truth.
+- Ensure you modify the `APP_NAME` variable for each project, to ensure you don't end up with clashing Docker Containers.
+- You may need to modify `VOLUME_WORDPRESS_PATH` if the "run" commands detailed further below don't work. This variable must point to your WordPress installation folder relative to wherever the `spinup-local-wp` node package root is installed; it should work out-of-the-box with NPM, but not with PNPM which installs packages in a different location.
+- Optionally adjust the `DB_NAME`, `DB_USER`, and `DB_PASSWORD` variables to be more secure and to match your production environment.
+- Modify `.env.local` to override any production variables from `.env` for local development purposes. It is configured by default to cover the required overrides, such as overriding your decoupled front-end's production URL with `http://localhost:5000` via the `CLOAKWP_FRONTEND_URL` variable.
+
+Note: `.env` is gitignored by default, and you likely want to keep it that way to keep your production values secure/secret. So, remember to manually add your `.env` to your production server environment, or build your own solution for automating that (this will likely be the topic of a guide in the future).
 
 </details>
 
@@ -48,27 +69,11 @@ Edit `.env.example` to your needs (there are many comments explaining things). D
  Installing ACF Pro via composer requires a couple extra steps, since they need to validate your license. Follow [this article](https://www.advancedcustomfields.com/resources/installing-acf-pro-with-composer/) to create an `auth.json` file within the root backend folder (i.e. alongside `composer.json`).
 </details>
 
-<details>
- <summary>Install</summary>
-Run the following at the project root:
+## Run
+Make sure you open the Docker Desktop app before running the dev command below:
 
-```shell
-pnpm install
-```
-Or alternatively, cd into the root of the backend folder and manually run:
-
-```shell
-pnpm composer create-project
-```
-The former simply runs the latter for you, but from the monorepo root.
-
-</details>
-
-<details>
- <summary>Run</summary>
-
-```shell
-pnpm dev
+```bash
+npm run dev
 ```
 
 This runs `docker-compose up`, and Docker Compose will now start all the services:
@@ -82,13 +87,13 @@ Starting new-website-nginx      ... done
 Starting new-website-mailhog    ... done
 ```
 
-🚀 Open [http://localhost](http://localhost) in your browser
+🚀 Open [http://localhost/wp](http://localhost/wp) in your browser to start working with WordPress! Your data will persist across sessions.
 
 ## PhpMyAdmin
 
 PhpMyAdmin comes installed as a service in docker-compose.
 
-🚀 Open [http://127.0.0.1:8082/](http://127.0.0.1:8082/) in your browser
+🚀 Open [http://127.0.0.1:8082/](http://127.0.0.1:8082/) in your browser to log in to and manage your local database.
 
 ## MailHog
 
@@ -96,9 +101,6 @@ MailHog comes installed as a service in docker-compose.
 
 🚀 Open [http://0.0.0.0:8025/](http://0.0.0.0:8025/) in your browser
 
-</details>
-<details>
- <summary>Tools</summary>
+## CLI Tools
 
-[Read more](https://github.com/cloak-labs/cloakwp/tree/feat/localwp/packages/spinup-local-wp) about the CLI tools made available to you via the Spinup Local WP package, such as using WP-CLI, or running Docker/Composer commands. 
-</details>
+[Read more](https://github.com/cloak-labs/cloakwp/tree/feat/localwp/packages/spinup-local-wp) about the CLI tools made available to you via the Spinup Local WP package, such as using the WP-CLI, Composer to add/remove/update plugins & themes, or running Docker commands.
