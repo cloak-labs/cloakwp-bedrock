@@ -45,7 +45,7 @@ npm install
 
 Finally, run:
 ```bash
-composer update
+npm run composer update
 ```
 ## Configuration
 <details>
@@ -64,9 +64,13 @@ Note: `.env` is gitignored by default, and you likely want to keep it that way t
 <details>
  <summary>ACF Pro</summary>
 
- It is highly recommended to purchase an Advanced Custom Fields (ACF) Pro license [here](https://www.advancedcustomfields.com/pro/#pricing-table), as this enables content-modelling features that most headless sites will require, such as repeater fields, ACF blocks, options pages, the gallery field, and more.
+It is highly recommended to purchase an Advanced Custom Fields (ACF) Pro license [here](https://www.advancedcustomfields.com/pro/#pricing-table), and install by running:
+```bash
+npm run composer require wpengine/advanced-custom-fields-pro
+```
+ACF Pro enables content-modelling features that most headless sites will require, such as repeater fields, ACF blocks, options pages, the gallery field, and more.
 
- Installing ACF Pro via composer requires a couple extra steps, since they need to validate your license. Follow [this article](https://www.advancedcustomfields.com/resources/installing-acf-pro-with-composer/) to create an `auth.json` file within the root backend folder (i.e. alongside `composer.json`).
+Installing ACF Pro via composer requires a couple extra steps, since they need to validate your license. Follow [this article](https://www.advancedcustomfields.com/resources/installing-acf-pro-with-composer/) to create an `auth.json` file within the CloakWP Bedrock root folder (i.e. alongside `composer.json`).
 </details>
 
 ## Run
