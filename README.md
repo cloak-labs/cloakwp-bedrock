@@ -31,12 +31,12 @@ cd into your desired installation directory and run:
 ```bash
 composer create-project cloak-labs/cloakwp-bedrock
 ```
-Note: you will be prompted to enter your ACF Pro account credentials on the command-line, since ACF Pro is a default dependency of this starter. If you don't have an account, simply enter fake credentials and ignore the red error message that will follow -- your project will still get created. To prevent constantly having to enter your ACF Pro creds on the command-line when running `composer update`, configure an `auth.json` file as described below.
 
 Then run:
 ```bash
 cd cloakwp-bedrock
 ```
+
 and:
 ```bash
 npm install
