@@ -38,7 +38,7 @@
     "vinkla/extended-acf": "^13.4",
     "wpengine/advanced-custom-fields-pro": "^6.1",
     "cloak-labs/cloakwp-base-theme": "^1.0.0",
-    "cloak-labs/cloakwp-inception-theme": "^1.0.0",
+    "cloak-labs/cloakwp-inception-theme": "^0.0.2",
     "cloak-labs/cloakwp-plugin": "^1.0.1"
   },
   "require-dev": {
@@ -54,14 +54,6 @@
     {
       "type":"composer",
       "url":"https://connect.advancedcustomfields.com"
-    },
-    {
-      "type": "path",
-      "url": "./local-themes/*"
-    },
-    {
-      "type": "path",
-      "url": "./local-plugins/*"
     }
   ],
   "config": {
