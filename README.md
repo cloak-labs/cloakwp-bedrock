@@ -43,7 +43,7 @@ npm install
 ```
 ... which installs [Spinup Local WP](https://github.com/cloak-labs/spinup-local-wp).
 
-Finally, run:
+Optionally run the following to update your plugins/themes to their latest versions:
 ```bash
 npm run composer update
 ```
