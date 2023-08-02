@@ -1,3 +1,5 @@
+node_modules
+
 # Application
 web/app/plugins/*
 !web/app/plugins/.gitkeep
@@ -13,6 +15,9 @@ web/app/cache/*
 # WordPress
 web/wp
 web/.htaccess
+
+# Local MYSQL data
+/data
 
 # Logs
 *.log
@@ -31,3 +36,6 @@ wp-cli.local.yml
 
 # ACF Pro auth.json
 auth.json
+
+/local-plugins
+/local-themes
