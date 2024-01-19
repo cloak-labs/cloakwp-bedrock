@@ -1,7 +1,7 @@
 {
   "name": "cloak-labs/cloakwp-bedrock",
   "type": "project",
-  "license": "MIT",
+  "license": "LGPL-3.0-only",
   "description": "Headless WordPress boilerplate for CloakWP projects, with modern development tools, easier configuration, and an improved WP folder structure.",
   "homepage": "https://github.com/cloak-labs/cloakwp-bedrock",
   "authors": [
@@ -12,7 +12,13 @@
     }
   ],
   "keywords": [
-    "headless", "bedrock", "composer", "cloakwp", "wordpress", "wp", "wp-config"
+    "headless",
+    "bedrock",
+    "composer",
+    "cloakwp",
+    "wordpress",
+    "wp",
+    "wp-config"
   ],
   "support": {
     "issues": "https://github.com/cloak-labs/cloakwp-bedrock/issues"
@@ -48,11 +54,14 @@
     {
       "type": "composer",
       "url": "https://wpackagist.org",
-      "only": ["wpackagist-plugin/*", "wpackagist-theme/*"]
+      "only": [
+        "wpackagist-plugin/*",
+        "wpackagist-theme/*"
+      ]
     },
     {
-      "type":"composer",
-      "url":"https://connect.advancedcustomfields.com"
+      "type": "composer",
+      "url": "https://connect.advancedcustomfields.com"
     }
   ],
   "config": {
@@ -67,9 +76,15 @@
   "prefer-stable": true,
   "extra": {
     "installer-paths": {
-      "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
-      "web/app/plugins/{$name}/": ["type:wordpress-plugin"],
-      "web/app/themes/{$name}/": ["type:wordpress-theme"]
+      "web/app/mu-plugins/{$name}/": [
+        "type:wordpress-muplugin"
+      ],
+      "web/app/plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ],
+      "web/app/themes/{$name}/": [
+        "type:wordpress-theme"
+      ]
     },
     "wordpress-install-dir": "web/wp"
   },
